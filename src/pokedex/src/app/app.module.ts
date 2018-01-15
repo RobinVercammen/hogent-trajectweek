@@ -3,14 +3,16 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { PokedexComponent } from './containers/pokedex/pokedex.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PokedexComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
