@@ -5,12 +5,14 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { PokedexComponent } from './containers/pokedex/pokedex.component';
+import { PokemonDescriptionComponent } from './components/pokemon-description/pokemon-description.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    PokedexComponent
+    PokedexComponent,
+    PokemonDescriptionComponent
   ],
   imports: [
     BrowserModule,
