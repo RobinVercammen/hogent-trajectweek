@@ -1,0 +1,4 @@
+# Angular, Ngrx en Firebase als bouwstenen voor een fullstack reactive serverless applicatie  
+
+In deze sessie lichten we aan de hand van een korte presentatie toe waar we deze technologieën plaatsen in het dev landschap, waarna de studenten zelf, in workshop vorm, aan de slag gaan.
+In deze workshop zullen we de applicatie opbouwen vanaf een leeg blad. We beginnen met het installeren van de angular cli. Waarna we over gaan tot het implementeren van onze componenten. Vervolgens integreren we met een externe api en zetten we onze eigen serverless api op doormiddel van Firebase. Wanneer dit alles geïmplementeerd is, kijken we met een kritische blik terug en bekijken we hoe we onze applicatie onder houdbaarder kunnen maken met behulp van Ngrx.
