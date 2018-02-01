@@ -1,7 +1,4 @@
+<h1>Pokémons</h1>
+<app-pokemon-list [pokemons]="pokeList$ | async"></app-pokemon-list>
+
 <app-pokemon-description [pokemon]="pikachu"></app-pokemon-description>
-
-
-<h1>Debug</h1>
-<div *ngFor="let pokemon of pokeList$ | async">
-    <pre>{{pokemon | json}}</pre>
-</div>

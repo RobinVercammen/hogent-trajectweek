@@ -6,16 +6,18 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 
 import { PokedexComponent } from './containers/pokedex/pokedex.component';
+
 import { PokemonDescriptionComponent } from './components/pokemon-description/pokemon-description.component';
+import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
 
-import { PokedexService} from './services/pokedex.service'
-
+import { PokedexService} from './services/pokedex.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     PokedexComponent,
-    PokemonDescriptionComponent
+    PokemonDescriptionComponent,
+    PokemonListComponent
   ],
   imports: [
     BrowserModule,
