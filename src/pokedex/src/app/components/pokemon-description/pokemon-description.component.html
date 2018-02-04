@@ -1,2 +1,8 @@
-<h1>{{pokemon.title}}</h1>
-<p>{{pokemon.description}}</p>
+<div *ngIf="pokemon$ | async; let pokemon">
+    <h1>{{pokemon.number}} {{pokemon.name}}</h1>
+    <ul>
+        <li>Weight: {{pokemon.weight}}</li>
+        <li>Height: {{pokemon.height}}</li>
+        <li>Types: {{pokemon.types}}</li>
+    </ul>
+</div>

@@ -1,11 +1,9 @@
-<!-- TODO REAL STYLING -->
-<table style="display: block; height: 500px; overflow-y: scroll;">
-  <tr>
-    <th>#</th>
-    <th>Name</th>
-  </tr>
-  <tr *ngFor="let pokemon of pokemons">
-    <td>{{pokemon.id}}</td>
-    <td>{{pokemon.name | titlecase}}</td>
-  </tr>
-</table>
+<div class="list-container">
+  <div *ngFor="let pokemon of pokemons"
+    [routerLink]="['/', pokemon.id]"
+    routerLinkActive="active"
+    class="list-item">
+    <div class="number">{{pokemon.id}}</div>
+    <div class="name">{{pokemon.name | titlecase}}</div>
+  </div>
+</div>

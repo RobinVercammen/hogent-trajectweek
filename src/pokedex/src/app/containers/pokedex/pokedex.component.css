@@ -1,0 +1,14 @@
+:host(){
+    display: flex;
+    height: calc(100vh - 30px);
+    overflow: hidden;
+    padding: 15px;
+}
+.list-container{
+    flex: 1;
+}
+
+.detail-container{
+    flex:5;
+    padding: 15px;
+}

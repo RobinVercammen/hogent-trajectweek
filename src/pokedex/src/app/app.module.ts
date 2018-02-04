@@ -10,7 +10,8 @@ import { PokedexComponent } from './containers/pokedex/pokedex.component';
 import { PokemonDescriptionComponent } from './components/pokemon-description/pokemon-description.component';
 import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
 
-import { PokedexService} from './services/pokedex.service';
+import { PokedexService } from './services/pokedex.service';
+import { PokemonDescriptionResolver } from './resolvers/pokemon-description-resolver';
 
 @NgModule({
   declarations: [
@@ -24,11 +25,21 @@ import { PokedexService} from './services/pokedex.service';
     HttpClientModule,
     RouterModule.forRoot([{
       path: '',
-      component: PokedexComponent
+      component: PokedexComponent,
+      children: [
+        {
+          path: ':number',
+          component: PokemonDescriptionComponent,
+          resolve: {
+            'pokemon': PokemonDescriptionResolver
+          },
+        }
+      ]
     }]),
   ],
   providers: [
-    PokedexService
+    PokedexService,
+    PokemonDescriptionResolver,
   ],
   bootstrap: [AppComponent]
 })

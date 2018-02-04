@@ -1,0 +1,25 @@
+.list-item{
+    display: flex;
+    cursor: pointer;
+}
+
+.list-item:hover{
+    background: red;
+}
+
+.list-item.active{
+    background: red;
+}
+
+.list-container{
+    height: 100%;
+    overflow-y: auto;
+}
+
+div.number{
+    flex: 1;
+}
+
+div.name{
+    flex: 5;
+}

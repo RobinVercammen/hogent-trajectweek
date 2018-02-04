@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+html, body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Open Sans', sans-serif;
+    color: rgb(255, 213, 213);
+    background-color: #FD401A;
+}
+
+div:focus{
+    outline: none;
+}
