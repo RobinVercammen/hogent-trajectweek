@@ -1,5 +1,7 @@
+import { LoadingService } from './services/loading-service';
+import { LoadingInterceptor } from './interceptors/loading-interceptor';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
@@ -12,13 +14,15 @@ import { PokemonListComponent } from './components/pokemon-list/pokemon-list.com
 
 import { PokedexService } from './services/pokedex.service';
 import { PokemonDescriptionResolver } from './resolvers/pokemon-description-resolver';
+import { GlobalLoaderComponent } from './components/global-loader/global-loader.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PokedexComponent,
     PokemonDescriptionComponent,
-    PokemonListComponent
+    PokemonListComponent,
+    GlobalLoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +43,12 @@ import { PokemonDescriptionResolver } from './resolvers/pokemon-description-reso
   ],
   providers: [
     PokedexService,
+    LoadingService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoadingInterceptor,
+      multi: true
+    },
     PokemonDescriptionResolver,
   ],
   bootstrap: [AppComponent]
