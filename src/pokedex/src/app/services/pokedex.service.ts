@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
-import { PokemonListItem } from '../models/pokemonList';
+import { PokemonListItem } from '../models/pokemon-list-item';
 
 @Injectable()
 export class PokedexService {
