@@ -15,6 +15,7 @@ import { PokemonListComponent } from './components/pokemon-list/pokemon-list.com
 import { PokedexService } from './services/pokedex.service';
 import { PokemonDescriptionResolver } from './resolvers/pokemon-description-resolver';
 import { GlobalLoaderComponent } from './components/global-loader/global-loader.component';
+import { FavoriteComponent } from './components/favorite/favorite.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { GlobalLoaderComponent } from './components/global-loader/global-loader.
     PokedexComponent,
     PokemonDescriptionComponent,
     PokemonListComponent,
-    GlobalLoaderComponent
+    GlobalLoaderComponent,
+    FavoriteComponent
   ],
   imports: [
     BrowserModule,

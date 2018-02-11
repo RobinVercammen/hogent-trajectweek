@@ -15,4 +15,8 @@ export class PokemonDescriptionComponent {
   constructor(route: ActivatedRoute) {
     this.pokemon$ = route.data.pluck('pokemon');
   }
+
+  onFavorite(favorite: boolean, pokemon: PokemonDescription) {
+
+  }
 }

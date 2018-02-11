@@ -1,5 +1,8 @@
 <div *ngIf="pokemon$ | async; let pokemon">
-    <h1>{{pokemon.number}} {{pokemon.name}}</h1>
+    <h1>{{pokemon.number}} {{pokemon.name}}
+        <app-favorite [favorite]="pokemon.favorite"
+            (onFavorite)="onFavorite($event, pokemon)"></app-favorite>
+    </h1>
     <img [src]="pokemon.image"
         alt="">
     <ul>
