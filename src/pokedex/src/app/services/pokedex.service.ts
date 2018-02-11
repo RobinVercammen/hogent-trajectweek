@@ -21,7 +21,7 @@ export class PokedexService {
   }
 
   getPokemon(number: number) {
-    return this.http.get(`${this.baseUrl}/pokemon/${number}`).map((r: PokemonDto) => {
+    return this.http.get(`${this.baseUrl}/pokemon/${number}/`).map((r: PokemonDto) => {
       return new PokemonDescription(r);
     });
   }
