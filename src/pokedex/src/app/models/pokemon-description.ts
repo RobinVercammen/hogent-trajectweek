@@ -6,7 +6,7 @@ export class PokemonDescription {
     weight: number;
     height: number;
     types: string;
-
+    image: string;
 
     constructor(dto: PokemonDto) {
         this.number = dto.id;
@@ -14,5 +14,6 @@ export class PokemonDescription {
         this.weight = dto.weight;
         this.height = dto.height;
         this.types = dto.types.map(t => t.type.name).join(', ');
+        this.image = dto.sprites.front_default;
     }
 }

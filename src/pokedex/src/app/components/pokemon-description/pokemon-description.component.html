@@ -1,5 +1,7 @@
 <div *ngIf="pokemon$ | async; let pokemon">
     <h1>{{pokemon.number}} {{pokemon.name}}</h1>
+    <img [src]="pokemon.image"
+        alt="">
     <ul>
         <li>Weight: {{pokemon.weight}}</li>
         <li>Height: {{pokemon.height}}</li>
