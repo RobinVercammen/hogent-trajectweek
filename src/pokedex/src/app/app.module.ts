@@ -9,16 +9,19 @@ import { PokedexComponent } from './containers/pokedex/pokedex.component';
 
 import { PokemonDescriptionComponent } from './components/pokemon-description/pokemon-description.component';
 import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
+import { PokemonSpriteComponent } from './components/pokemon-sprite/pokemon-sprite.component';
 
 import { PokedexService } from './services/pokedex.service';
 import { PokemonDescriptionResolver } from './resolvers/pokemon-description-resolver';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     PokedexComponent,
     PokemonDescriptionComponent,
-    PokemonListComponent
+    PokemonListComponent,
+    PokemonSpriteComponent
   ],
   imports: [
     BrowserModule,
