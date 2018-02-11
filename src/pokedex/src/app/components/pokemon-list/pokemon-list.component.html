@@ -4,6 +4,9 @@
     routerLinkActive="active"
     class="list-item">
     <div class="number">{{pokemon.id}}</div>
-    <div class="name">{{pokemon.name | titlecase}}</div>
+    <div class="name">{{pokemon.name | titlecase}}
+      <app-favorite [favorite]="pokemon.favorite"
+        *ngIf="pokemon.favorite"></app-favorite>
+    </div>
   </div>
 </div>

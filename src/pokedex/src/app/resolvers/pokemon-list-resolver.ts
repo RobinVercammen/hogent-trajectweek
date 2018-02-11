@@ -1,16 +1,14 @@
-import { PokemonDto } from './../dto/pokemon-dto';
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { PokedexService } from '../services/pokedex.service';
-import { PokemonDescription } from '../models/pokemon-description';
+import { PokemonListItem } from '../models/pokemonList';
 
 @Injectable()
-export class PokemonDescriptionResolver implements Resolve<PokemonDto> {
+export class PokemonListResolver implements Resolve<PokemonListItem[]> {
     constructor(private service: PokedexService) {
 
     }
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-        const number = route.params['number'];
-        return this.service.getPokemon(number);
+        return this.service.getPokemons();
     }
 }

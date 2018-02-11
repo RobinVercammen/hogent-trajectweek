@@ -2,6 +2,8 @@ import { Observable } from 'rxjs/Observable';
 import { Component } from '@angular/core';
 import { PokemonDescription } from '../../models/pokemon-description';
 import { ActivatedRoute } from '@angular/router';
+import { AngularFirestore } from 'angularfire2/firestore';
+import { PokedexService } from '../../services/pokedex.service';
 import 'rxjs/add/operator/pluck';
 import 'rxjs/add/operator/do';
 
@@ -12,11 +14,11 @@ import 'rxjs/add/operator/do';
 })
 export class PokemonDescriptionComponent {
   public pokemon$: Observable<PokemonDescription>;
-  constructor(route: ActivatedRoute) {
-    this.pokemon$ = route.data.pluck('pokemon');
+  constructor(private pokedexService: PokedexService, private db: AngularFirestore) {
+    this.pokemon$ = pokedexService.getPokemonDescription();
   }
 
   onFavorite(favorite: boolean, pokemon: PokemonDescription) {
-
+    this.db.collection('favorites').doc(pokemon.number + '').set({ id: pokemon.number, favorite });
   }
 }

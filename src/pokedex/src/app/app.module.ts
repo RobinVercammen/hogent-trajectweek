@@ -9,13 +9,17 @@ import { AppComponent } from './app.component';
 
 import { PokedexComponent } from './containers/pokedex/pokedex.component';
 
-import { PokemonDescriptionComponent } from './components/pokemon-description/pokemon-description.component';
+import { PokemonDescriptionComponent } from './containers/pokemon-description/pokemon-description.component';
 import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
 
 import { PokedexService } from './services/pokedex.service';
 import { PokemonDescriptionResolver } from './resolvers/pokemon-description-resolver';
 import { GlobalLoaderComponent } from './components/global-loader/global-loader.component';
 import { FavoriteComponent } from './components/favorite/favorite.component';
+import { environment } from '../environments/environment';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { PokemonListResolver } from './resolvers/pokemon-list-resolver';
 
 @NgModule({
   declarations: [
@@ -29,9 +33,14 @@ import { FavoriteComponent } from './components/favorite/favorite.component';
   imports: [
     BrowserModule,
     HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
     RouterModule.forRoot([{
       path: '',
       component: PokedexComponent,
+      resolve: {
+        'pokemons': PokemonListResolver
+      },
       children: [
         {
           path: ':number',
@@ -52,6 +61,7 @@ import { FavoriteComponent } from './components/favorite/favorite.component';
       multi: true
     },
     PokemonDescriptionResolver,
+    PokemonListResolver,
   ],
   bootstrap: [AppComponent]
 })

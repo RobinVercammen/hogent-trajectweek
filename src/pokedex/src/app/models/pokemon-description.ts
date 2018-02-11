@@ -7,6 +7,7 @@ export class PokemonDescription {
     height: number;
     types: string;
     image: string;
+    favorite: boolean;
 
     constructor(dto: PokemonDto) {
         this.number = dto.id;
