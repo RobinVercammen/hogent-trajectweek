@@ -8,8 +8,8 @@ import { HttpClient } from '@angular/common/http';
 import { AngularFirestore } from 'angularfire2/firestore';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
-import { PokemonListItem } from '../models/pokemonList';
 import 'rxjs/add/observable/combineLatest';
+import { PokemonListItem } from '../models/pokemon-list-item';
 
 @Injectable()
 export class PokedexService {

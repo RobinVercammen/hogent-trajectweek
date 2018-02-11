@@ -11,6 +11,7 @@ import { PokedexComponent } from './containers/pokedex/pokedex.component';
 
 import { PokemonDescriptionComponent } from './containers/pokemon-description/pokemon-description.component';
 import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
+import { PokemonSpriteComponent } from './components/pokemon-sprite/pokemon-sprite.component';
 
 import { PokedexService } from './services/pokedex.service';
 import { PokemonDescriptionResolver } from './resolvers/pokemon-description-resolver';
@@ -21,6 +22,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { PokemonListResolver } from './resolvers/pokemon-list-resolver';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +30,8 @@ import { PokemonListResolver } from './resolvers/pokemon-list-resolver';
     PokemonDescriptionComponent,
     PokemonListComponent,
     GlobalLoaderComponent,
-    FavoriteComponent
+    FavoriteComponent,
+    PokemonSpriteComponent
   ],
   imports: [
     BrowserModule,
