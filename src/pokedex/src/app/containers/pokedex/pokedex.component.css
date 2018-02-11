@@ -12,3 +12,7 @@
     flex:5;
     padding: 15px;
 }
+
+.debug-container{
+    flex:1;
+}

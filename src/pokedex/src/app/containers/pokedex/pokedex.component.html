@@ -1,6 +1,12 @@
 <div class="list-container">
     <app-pokemon-list [pokemons]="pokeList$ | async"></app-pokemon-list>
 </div>
+
 <div class="detail-container">
     <router-outlet></router-outlet>
 </div>
+
+
+<pre class="debug-container">
+    {{likedPokeList$ | async | json}}
+</pre>
