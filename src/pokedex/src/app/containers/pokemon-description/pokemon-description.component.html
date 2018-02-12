@@ -1,5 +1,5 @@
 <div *ngIf="pokemon$ | async; let pokemon">
-    <h1>{{pokemon.number}} {{pokemon.name}}
+    <h1>{{pokemon.number}} {{pokemon.name | titlecase}}
         <app-favorite [favorite]="pokemon.favorite"
             (favoriteChange)="onFavorite($event, pokemon)"></app-favorite>
     </h1>

@@ -47,6 +47,7 @@ export class PokedexService {
 
   getPokemonDescription() {
     return Observable.combineLatest(this.pokemon$, this.favorites$, (r: PokemonDto, favorites) => {
+      debugger;
       const fav = favorites.find(f => f.id === r.id);
       const pokemon = new PokemonDescription(r);
       pokemon.favorite = fav && fav.favorite;
