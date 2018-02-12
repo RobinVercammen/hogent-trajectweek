@@ -6,8 +6,8 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./pokemon-sprite.component.css']
 })
 export class PokemonSpriteComponent implements OnInit {
-  @Input() id: number;
-  
+  @Input() imageUrl: string;
+
   constructor() { }
 
   ngOnInit() {

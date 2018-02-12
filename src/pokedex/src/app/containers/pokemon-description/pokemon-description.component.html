@@ -3,8 +3,7 @@
         <app-favorite [favorite]="pokemon.favorite"
             (favoriteChange)="onFavorite($event, pokemon)"></app-favorite>
     </h1>
-    <img [src]="pokemon.image"
-        alt="">
+    <app-pokemon-sprite [imageUrl]="pokemon.image"></app-pokemon-sprite>
     <ul>
         <li>Weight: {{pokemon.weight}}</li>
         <li>Height: {{pokemon.height}}</li>
