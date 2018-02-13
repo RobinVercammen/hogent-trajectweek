@@ -13,7 +13,7 @@ import { PokemonListItem } from '../models/pokemon-list-item';
 
 @Injectable()
 export class PokedexService {
-  private baseUrl = 'https://pokeapi.co/api/v2';
+  private baseUrl = 'https://angular-hogent.azurewebsites.net/api/pokemon';
   private favorites$ = new BehaviorSubject<FavoriteDto[]>([]);
   private pokemons$ = new BehaviorSubject<PokemonListItem[]>([]);
   private pokemon$ = new BehaviorSubject<PokemonDto>(null);
@@ -35,19 +35,18 @@ export class PokedexService {
   }
 
   getPokemons() {
-    return this.http.get(`${this.baseUrl}/pokedex/2`).map(r => {
+    return this.http.get(`${this.baseUrl}`).map(r => {
       const entries = ((r as any).pokemon_entries as any[]);
       const pokemons = entries.map(e => new PokemonListItem(e.entry_number, e.pokemon_species.name));
       return pokemons;
     }).do((p) => { this.pokemons$.next(p); });
   }
   getPokemon(number: number) {
-    return this.http.get<PokemonDto>(`${this.baseUrl}/pokemon/${number}`).do(p => this.pokemon$.next(p));
+    return this.http.get<PokemonDto>(`${this.baseUrl}/${number}`).do(p => this.pokemon$.next(p));
   }
 
   getPokemonDescription() {
     return Observable.combineLatest(this.pokemon$, this.favorites$, (r: PokemonDto, favorites) => {
-      debugger;
       const fav = favorites.find(f => f.id === r.id);
       const pokemon = new PokemonDescription(r);
       pokemon.favorite = fav && fav.favorite;
