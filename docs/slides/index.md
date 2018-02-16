@@ -121,27 +121,13 @@ export class FavoriteComponent implements OnInit {
 ```
 
 
-## Streams
+## HttpClient
 ```typescript
-import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-
-@Injectable()
-export class LoadingService {
-    private loadingCount$ = new BehaviorSubject<number>(0);
-    public loading$ = this.loadingCount$.asObservable().map(loadingCount => loadingCount > 0);
-
-    startLoading() {
-        const val = this.loadingCount$.value;
-        this.loadingCount$.next(val + 1);
-    }
-
-    stopLoading() {
-        const val = this.loadingCount$.value;
-        this.loadingCount$.next(val - 1);
-    }
-}
-
+this.http.get(`${this.baseUrl}/pokedex/2`).map(r => {
+    const entries = ((r as any).pokemon_entries as any[]);
+    const pokemons = entries.map(e => new PokemonListItem(e.entry_number, e.pokemon_species.name));
+    return pokemons;
+})
 ```
 
 
@@ -174,13 +160,27 @@ RouterModule.forRoot([{
 ```
 
 
-## HttpClient
+## Streams
 ```typescript
-this.http.get(`${this.baseUrl}/pokedex/2`).map(r => {
-    const entries = ((r as any).pokemon_entries as any[]);
-    const pokemons = entries.map(e => new PokemonListItem(e.entry_number, e.pokemon_species.name));
-    return pokemons;
-})
+import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+
+@Injectable()
+export class LoadingService {
+    private loadingCount$ = new BehaviorSubject<number>(0);
+    public loading$ = this.loadingCount$.asObservable().map(loadingCount => loadingCount > 0);
+
+    startLoading() {
+        const val = this.loadingCount$.value;
+        this.loadingCount$.next(val + 1);
+    }
+
+    stopLoading() {
+        const val = this.loadingCount$.value;
+        this.loadingCount$.next(val - 1);
+    }
+}
+
 ```
 
 
