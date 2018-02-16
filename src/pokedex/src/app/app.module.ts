@@ -27,6 +27,7 @@ import { PokemonListResolver } from './resolvers/pokemon-list-resolver';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
     PokemonListComponent,
     GlobalLoaderComponent,
     FavoriteComponent,
-    PokemonSpriteComponent
+    PokemonSpriteComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

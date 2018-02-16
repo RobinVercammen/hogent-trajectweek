@@ -1,4 +1,5 @@
 <div class="list-container">
+    <app-search (searchChanged)="onSearch($event)"></app-search>
     <app-pokemon-list [pokemons]="pokeList$ | async"></app-pokemon-list>
 </div>
 <div class="detail-container">

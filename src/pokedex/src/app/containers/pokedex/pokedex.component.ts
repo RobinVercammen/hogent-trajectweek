@@ -17,4 +17,7 @@ export class PokedexComponent implements OnInit {
     this.pokeList$ = this.service.getPokemonsWithFavorites();
   }
 
+  onSearch(searchQuery: string) {
+    this.service.searchList(searchQuery);
+  }
 }

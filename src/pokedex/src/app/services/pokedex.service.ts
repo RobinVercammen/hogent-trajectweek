@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 import { AngularFirestore } from 'angularfire2/firestore';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
+import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/observable/combineLatest';
 import { PokemonListItem } from '../models/pokemon-list-item';
 
@@ -17,21 +18,23 @@ export class PokedexService {
   private favorites$ = new BehaviorSubject<FavoriteDto[]>([]);
   private pokemons$ = new BehaviorSubject<PokemonListItem[]>([]);
   private pokemon$ = new BehaviorSubject<PokemonDto>(null);
+  private searchQuery$ = new BehaviorSubject<string>('');
 
   constructor(private http: HttpClient, private db: AngularFirestore) {
     this.getFavorites().subscribe(this.favorites$);
   }
 
   getPokemonsWithFavorites() {
-    return Observable.combineLatest(this.pokemons$, this.favorites$, (pokemons, favorites) => {
-      return pokemons.map(p => {
-        const fav = favorites.find(f => f.id === p.id);
-        return {
-          ...p,
-          favorite: fav && fav.favorite
-        };
+    return Observable.combineLatest(this.pokemons$, this.favorites$,
+      this.searchQuery$.debounceTime(250), (pokemons, favorites, searchQuery) => {
+        return pokemons.filter(p => p.name.toLowerCase().startsWith(searchQuery.toLowerCase())).map(p => {
+          const fav = favorites.find(f => f.id === p.id);
+          return {
+            ...p,
+            favorite: fav && fav.favorite
+          };
+        });
       });
-    });
   }
 
   getPokemons() {
@@ -52,6 +55,10 @@ export class PokedexService {
       pokemon.favorite = fav && fav.favorite;
       return pokemon;
     });
+  }
+
+  searchList(searchQuery: string) {
+    this.searchQuery$.next(searchQuery);
   }
 
   private getFavorites() {
